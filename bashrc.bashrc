@@ -112,7 +112,8 @@ alias _='sudo'
 alias _i='sudo -i'
 alias cls='clear'
 alias tmux='tmux -u'
-
+alias cat='bat --plain --wrap character'
+alias cp='xcp -n'
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
