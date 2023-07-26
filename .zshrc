@@ -92,14 +92,12 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 configure_prompt() {
-    prompt_symbol=＠
+
     # Skull emoji for root terminal
     #[ "$EUID" -eq 0 ] && prompt_symbol=💀
     case "$PROMPT_ALTERNATIVE" in
         twoline)
-
-            
-            PROMPT=$'%F{white}${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%B%F{124}%n%F{white}'$prompt_symbol$'%F{124}%m%b%F{white})%F{033}%%%F{white}[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{white}]%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
+          PROMPT=$'%F{%(#.red.red)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%B%F{%(#.red.blue)}%n%F{%(#.red.red}@%F{%(#.green.green}%m%b%F{%(#.red.red)})-[%B%F{reset}%F{%(#.magenta.magenta)}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.red.red)}]\n└─%B%(#.%F{red}#.%F{green.blue}$)%b%F{reset} '
             # Right-side prompt with exit codes and background processes
             #RPROMPT=$'%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)'
             ;;
@@ -133,7 +131,7 @@ if [ "$color_prompt" = yes ]; then
         . /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
         ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
         ZSH_HIGHLIGHT_STYLES[default]=none
-        ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=white,underline
+        ZSH_HIGHLIGHT_STYLES[unknown-token]=underline
         ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=cyan,bold
         ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=green,underline
         ZSH_HIGHLIGHT_STYLES[global-alias]=fg=green,bold
@@ -246,8 +244,7 @@ fi
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
-alias cls='clear'
-alias tmux='tmux -u'
+
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
