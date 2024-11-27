@@ -23,7 +23,8 @@ set hidden                      " Allow background buffers without saving
 " Enable syntax highlighting
 syntax on
 set background=dark
-colorscheme solarized           " Set Solarized color scheme
+" add colorscheme as per background or based on prefrence
+" colorscheme solarized           " Set Solarized color scheme
 
 " Change leader to a comma (easier than backslash)
 let mapleader = ","
